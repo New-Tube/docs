@@ -5,8 +5,9 @@ IGNORE = [
     "Dockerfile",
     "README.md",
     ".git",
+    ".github",
     "static",
-    "index.html"
+    "index.html",
 ]
 
 links = []

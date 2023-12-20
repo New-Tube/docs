@@ -1,13 +1,6 @@
 name: Test if buildable
 on: [push, pull_request]
 jobs:
-  test-vars:
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo SERVER
-          echo ${{ vars.SERVER }}
-
   test:
     runs-on: ubuntu-latest
     steps:
