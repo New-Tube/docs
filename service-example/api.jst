@@ -1,0 +1,49 @@
+JSIGHT 0.3
+
+URL /api/info
+
+GET /api/info
+  200
+    {
+      "result": @ExampleType
+    }
+
+  403 @error
+
+GET /api/info/{id}
+  200
+    {
+      "result": @ExampleType
+    }
+
+  403 @error
+  404 @error
+
+POST /api/info/{id}
+  Request @ExampleType
+  200 empty
+  404 @error
+  409 @error
+
+TYPE @ExampleType
+{
+  "id"        : 0,
+  "name"      : "<name>",
+  "count"     : 0,
+  "data"       : [
+    @ExampleData
+  ]
+}
+
+TYPE @ExampleData
+{
+  "id": 0,
+  "priority": 0,
+  "content": ""
+}
+
+TYPE @error // A common error response.
+{
+  "code": 0,
+  "message": "Something bad had happened on the server..."
+}
