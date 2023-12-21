@@ -31,5 +31,6 @@ jobs:
 
           docker build . -t docs
 
-          docker image tag docs ${{ vars.SERVER }}/docs
-          docker push ${{ vars.SERVER }}/docs
+          docker login --username ${{ secrets.DOCKER_USER }} --password ${{ secrets.DOCKER_USER_PASS }} ${{ vars.DOCKER_SERVER }}
+          docker image tag docs ${{ vars.DOCKER_SERVER }}/docs
+          docker push ${{ vars.DOCKER_SERVER }}/docs
