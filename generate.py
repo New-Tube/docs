@@ -8,6 +8,7 @@ IGNORE = [
     ".github",
     "static",
     "index.html",
+    "LICENSE",
 ]
 
 links = []
