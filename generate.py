@@ -19,7 +19,13 @@ for service in listdir():
 
     print("WORKING ON ", service)
     system(f"mkdir static/{service}")
-    system(f"jsight doc html {service}/api.jst > static/{service}/index.html")
+    retcode = system(
+        f"jsight doc html {service}/api.jst > static/{service}/index.html")
+
+    if retcode != 0:
+        print("jsight exited with non-zero code")
+        exit(-1)
+
     links.append(service)
 
 
