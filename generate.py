@@ -22,6 +22,14 @@ for service in listdir():
     retcode = system(
         f"jsight doc html {service}/api.jst > static/{service}/index.html")
 
+    f = open(f"static/{service}/index.html", 'r')
+    generated_content = f.read()
+    f.close()
+    f = open(f"static/{service}/index.html", 'w')
+    f.write(generated_content.replace("<title>JSight Online Editor</title>",
+            "<title>NewTube API docs</title>"))
+    f.close()
+
     if retcode != 0:
         print("jsight exited with non-zero code")
         exit(-1)
