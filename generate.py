@@ -26,8 +26,14 @@ for service in listdir():
     generated_content = f.read()
     f.close()
     f = open(f"static/{service}/index.html", 'w')
-    f.write(generated_content.replace("<title>JSight Online Editor</title>",
-            "<title>NewTube API docs</title>"))
+    f.write(generated_content
+            .replace(
+                '<title>JSight Online Editor</title>',
+                '<title>NewTube API docs</title>')
+            .replace(
+                '<link rel="icon" href="https://editor.jsight.io/favicon.png"/>',
+                '<link rel="icon" href="/favicon.png">')
+            )
     f.close()
 
     if retcode != 0:
