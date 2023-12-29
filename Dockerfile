@@ -11,9 +11,7 @@ RUN chmod +x /usr/local/bin/jsight
 
 COPY . . 
 
-RUN mkdir static
 RUN python3 generate.py
-
 
 
 FROM nginx:stable-alpine3.17
